@@ -6,7 +6,7 @@
 /*   By: hojo <hojo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:19:24 by hojo              #+#    #+#             */
-/*   Updated: 2021/12/15 16:41:34 by hojo             ###   ########.fr       */
+/*   Updated: 2021/12/15 18:26:16 by hojo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		main(void)
 	Phonebook		phonebook;
 	std::string		command;
 
+	std::cout << "THIS IS HOJO'S SECRET PHONEBOOK!" << std::endl;
 	working = true;
 	while (working)
 	{

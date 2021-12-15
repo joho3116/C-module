@@ -6,7 +6,7 @@
 /*   By: hojo <hojo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 13:17:38 by hojo              #+#    #+#             */
-/*   Updated: 2021/12/15 16:23:17 by hojo             ###   ########.fr       */
+/*   Updated: 2021/12/15 17:35:43 by hojo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Contact
 			int	input_infomation(int idx);
 			void	view_contact_list();
 			void	view_contact_detail(int idx);
+			~Contact();
 };
 
 class Phonebook
@@ -41,6 +42,7 @@ class Phonebook
 			int	add_contact();
 			int	select_contact();
 			int	view_phonebook();
+			~Phonebook();
 };
 
 #endif

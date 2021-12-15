@@ -6,7 +6,7 @@
 /*   By: hojo <hojo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:12:16 by hojo              #+#    #+#             */
-/*   Updated: 2021/12/15 16:48:48 by hojo             ###   ########.fr       */
+/*   Updated: 2021/12/15 18:24:18 by hojo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,15 @@ int	Phonebook::add_contact()
 int	Phonebook::select_contact()
 {
 	bool	flag_isdigit;
-	char	*idx;
+	char	idx[2];
 	size_t	i;
 
 	i = 0;
-	idx = new char[2];
 	flag_isdigit = true;
 	std::cout << "Please select an idx : ";
 	std::cin >> idx;
 	if (std::cin.eof())
-	{
-		delete []idx;
 		return (-1);
-	}
 	while (i < strlen(idx))
 	{
 		if(isdigit(idx[i]) == 0)
@@ -56,11 +52,9 @@ int	Phonebook::select_contact()
 	{
 		std::cout << "Error : Invalid value." << std::endl;
 		std::cout << "==================================================" << std::endl;
-		delete []idx;
 		return (1);
 	}
 	_contacts[atoi(idx) - 1].view_contact_detail(atoi(idx));
-	delete []idx;
 	return (0);
 }
 
@@ -90,6 +84,9 @@ int	Phonebook::view_phonebook()
 	return (0);
 }
 
+Phonebook::~Phonebook() {
+}
+
 Contact::Contact()
 {
 	int	i;
@@ -116,7 +113,7 @@ int	Contact::input_infomation(int idx)
 	i = 0;
 	std::cout << "==================================================" << std::endl;
 	std::cout << "           Please enter a infomation.       " << std::endl;
-	while (i < 5)
+	while (i < 6)
 	{
 		while (_contact_info[i].length() == 0)
 		{
@@ -158,10 +155,13 @@ void	Contact::view_contact_detail(int idx)
 	i = 0;
 	std::cout << "==================================================" << std::endl;
 	std::cout << "This is the contact infomation for idx [" << idx << "]" << std::endl;
-	while (i < 5)
+	while (i < 6)
 	{
 		std::cout << _contact_fields[i] << " : " << _contact_info[i] << std::endl;
 		i++;
 	}
 	std::cout << "==================================================" << std::endl;
+}
+
+Contact::~Contact() {
 }
