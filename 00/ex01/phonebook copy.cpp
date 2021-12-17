@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   phonebook copy.cpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hojo <hojo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 14:12:16 by hojo              #+#    #+#             */
-/*   Updated: 2021/12/17 19:48:38 by hojo             ###   ########.fr       */
+/*   Updated: 2021/12/15 18:24:13 by hojo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 Phonebook::Phonebook()
 {
 	_number_of_contacts = 0;
-	_for_replace_idx = 0;
 }
 
 int	Phonebook::add_contact()
@@ -25,29 +24,28 @@ int	Phonebook::add_contact()
 		if (_contacts[_number_of_contacts].input_infomation(_number_of_contacts + 1) < 0)
 			return (-1);
 		_number_of_contacts++;
-		_for_replace_idx++;
 	}
 	else
-	{
-		if (_contacts[_for_replace_idx % 8].replace_infomation(_for_replace_idx % 8 + 1) < 0)
-			return (-1);
-		_for_replace_idx++;
-	}
+		std::cout << "Error : Phonebook is full" << std::endl;
 	return (0);
 }
 
 int	Phonebook::select_contact()
 {
 	bool	flag_isdigit;
-	char	idx[2];
+	char	*idx;
 	size_t	i;
 
 	i = 0;
+	idx = new char[2];
 	flag_isdigit = true;
 	std::cout << "Please select an idx : ";
 	std::cin >> idx;
 	if (std::cin.eof())
+	{
+		delete []idx;
 		return (-1);
+	}
 	while (i < strlen(idx))
 	{
 		if(isdigit(idx[i]) == 0)
@@ -58,9 +56,11 @@ int	Phonebook::select_contact()
 	{
 		std::cout << "Error : Invalid value." << std::endl;
 		std::cout << "==================================================" << std::endl;
+		delete []idx;
 		return (1);
 	}
 	_contacts[atoi(idx) - 1].view_contact_detail(atoi(idx));
+	delete []idx;
 	return (0);
 }
 
@@ -86,6 +86,7 @@ int	Phonebook::view_phonebook()
 			return (-1);
 		std::cin.clear();
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		// cin.ignore를 이용해 입력 버퍼의 모든 내용을 제거해줌,
 	}
 	return (0);
 }
@@ -119,7 +120,7 @@ int	Contact::input_infomation(int idx)
 	i = 0;
 	std::cout << "==================================================" << std::endl;
 	std::cout << "           Please enter a infomation.       " << std::endl;
-	while (i < 6)
+	while (i < 5)
 	{
 		while (_contact_info[i].length() == 0)
 		{
@@ -130,36 +131,6 @@ int	Contact::input_infomation(int idx)
 			if (_contact_info[i].length() == 0)
 				std::cout << "Error : Invalid value." << std::endl;
 		}
-		i++;
-	}
-	std::cout << "            Register Success.      " << std::endl;
-	std::cout << "==================================================" << std::endl;
-	return (0);
-}
-
-int	Contact::replace_infomation(int idx)
-{
-	int	i;
-	std::string	tmp[6];
-	_idx = idx;
-
-	i = 0;
-	std::cout << "Phonebook is full now. entered infomation will be replaced." << std::endl;
-	std::cout << "==================================================" << std::endl;
-	std::cout << "           Please enter a infomation.       " << std::endl;
-	while (i < 6)
-	{
-		while (tmp[i].length() == 0)
-		{
-			std::cout << _contact_fields[i] << " : ";
-			std::getline(std::cin, tmp[i]);
-			if (std::cin.eof())
-				return (-1);
-			_contact_info[i] = tmp[i];
-			if (_contact_info[i].length() == 0)
-				std::cout << "Error : Invalid value." << std::endl;
-		}
-		tmp[i].clear();
 		i++;
 	}
 	std::cout << "            Register Success.      " << std::endl;
@@ -191,7 +162,7 @@ void	Contact::view_contact_detail(int idx)
 	i = 0;
 	std::cout << "==================================================" << std::endl;
 	std::cout << "This is the contact infomation for idx [" << idx << "]" << std::endl;
-	while (i < 6)
+	while (i < 5)
 	{
 		std::cout << _contact_fields[i] << " : " << _contact_info[i] << std::endl;
 		i++;

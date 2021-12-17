@@ -88,5 +88,15 @@ int	main()
   day.SetDate(2012, 8, 4);
   day.AddDay(2500);
   day.ShowDate();
+
+	std::string tmp;
+
+	tmp = "adsdadadad";
+	std::cout << tmp << std::endl;
+	std::cout << tmp.length() << std::endl;
+	tmp.clear();
+	std::cout << tmp << std::endl;
+	std::cout << tmp.length() << std::endl;
+
   return 0;
 }
