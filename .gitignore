@@ -1,1 +1,5 @@
 .vscode/settings.json
+.DS_Store
+a.out
+practice.cpp
+test.cpp
