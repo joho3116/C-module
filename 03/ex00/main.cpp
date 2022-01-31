@@ -5,27 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/16 23:03:48 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/01/16 22:04:57 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/01/16 23:03:34 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int main( void )
+int main()
 {
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
-    Fixed c(1.0f);
+    ClapTrap a("HOJO");
+    ClapTrap b("Khancho");
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-
-    std::cout << b << std::endl;
-
+    a.attack("Khancho");
+    b.takeDamage(2);
+    b.beRepaired(3);
     return (0);
 }

@@ -5,27 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/16 23:03:48 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/01/16 22:04:57 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/01/31 16:17:09 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#include "DiamondTrap.hpp"
 
-int main( void )
+int main()
 {
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
-    Fixed c(1.0f);
+	DiamondTrap	a("Hojo");
+	DiamondTrap b;
+	DiamondTrap c("Khancho");
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-
-    std::cout << b << std::endl;
-
-    return (0);
+	b = a;
+	b.attack("Khancho");
+	c.takeDamage(10);
+	c.beRepaired(20);
+	c.guardGate();
+	b.highFivesGuys();
+	b.whoAmI();
 }
