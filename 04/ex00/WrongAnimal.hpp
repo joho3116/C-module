@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/31 17:51:58 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/03 14:58:36 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/03 23:24:20 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-int main( void )
-{
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
+# include <iostream>
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+class WrongAnimal {
+    
+    protected:
+        std::string type;
 
-    std::cout << b << std::endl;
+    public:
+        WrongAnimal();
+        WrongAnimal(const WrongAnimal& src);
+        WrongAnimal& operator=(const WrongAnimal& src);
+        virtual ~WrongAnimal();
+        std::string const & getType() const;
 
-    std::cout << Fixed::max( a, b ) << std::endl;
+        virtual void makeSound() const;
+};
 
-    return (0);
-}
+#endif

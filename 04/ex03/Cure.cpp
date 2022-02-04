@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/31 17:51:58 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/04 00:57:06 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/04 14:08:03 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#include "Cure.hpp"
 
-int main( void )
-{
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
+Cure::Cure(const Cure& src) : AMateria(src) {
+}
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+Cure& Cure::operator=(const Cure &src) {
+    if (this != &src)
+    {
+        AMateria::operator=(src);
+    }
+    return (*this);
+}
 
-    std::cout << b << std::endl;
+AMateria* Cure::clone() const {
+    return (new Cure());
+}
 
-    std::cout << Fixed::max( a, b ) << std::endl;
-
-    return (0);
+void Cure::use(ICharacter& target) {
+    std::cout << "* heals " << target.getName() << "'s wounds *" <<std::endl;
+    AMateria::use(target);
 }

@@ -5,28 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/31 17:51:58 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/01/31 21:49:02 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/03 23:23:33 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-int main( void )
+int main()
 {
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
+    const Animal* meta = new Animal();
+    const Animal* i = new Dog();
+    const Animal* j = new Cat();
+    const WrongAnimal* k = new WrongAnimal();
+    const WrongAnimal* l = new WrongCat();
+    
+    std::cout << i->getType() << " " << std::endl;
+    std::cout << j->getType() << " " << std::endl;
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+    
+    i->makeSound(); //will output the cat sound!
+    j->makeSound();
+    meta->makeSound();
+    l->makeSound();
+    k->makeSound();
 
-    std::cout << b << std::endl;
-
-    std::cout << Fixed::max( a, b ) << std::endl;
-
-    return (0);
+    delete meta;
+    delete i;
+    delete j;
+    delete k;
 }

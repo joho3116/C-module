@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/31 17:51:58 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/04 01:00:52 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/04 14:03:41 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#ifndef ICE_HPP
+# define ICE_HPP
 
-int main( void )
-{
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
+# include "AMateria.hpp"
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+class Ice : public AMateria {
+    
+    public :
+    Ice() : AMateria("ice") {}
+    virtual ~Ice() {}
+    Ice(const Ice& src);
+    Ice& operator=(const Ice&);
 
-    std::cout << b << std::endl;
+    virtual AMateria* clone() const;
+    virtual void use(ICharacter& target);
+    
+};
 
-    std::cout << Fixed::max( a, b ) << std::endl;
-
-    return (0);
-}
+#endif

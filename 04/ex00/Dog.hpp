@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/31 17:51:58 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/01/31 23:50:54 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/03 14:01:03 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int main( void )
+# include "Animal.hpp"
+
+class Dog : public Animal
 {
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+public:
+    Dog();
+    virtual ~Dog();
+    Dog(const Dog&);
+    Dog& operator=(const Dog&);
 
-    std::cout << b << std::endl;
+    virtual void makeSound() const;
+};
 
-    std::cout << Fixed::max( a, b ) << std::endl;
-
-    return (0);
-}
+#endif

@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 22:05:05 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/17 14:30:19 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/01/31 18:33:37 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap &src)
     std::cout << "Claptrap`s assignation operator." << std::endl;
     this->_name = src._name;
     this->_Hitpoints = src._Hitpoints;
-    this->_Hitpoints = src._Energy_points;
+    this->_Energy_points = src._Energy_points;
     this->_Attack_damage = src._Attack_damage;
     return (*this);
 }

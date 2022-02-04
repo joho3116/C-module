@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/31 17:51:58 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/03 14:47:01 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/03 22:47:15 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int main( void )
+# include "Animal.hpp"
+# include "Brain.hpp"
+
+class Cat : public Animal
 {
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
+private:
+    Brain *brain;
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+public:
+    Cat();
+    ~Cat();
+    Cat(const Cat&);
+    Cat& operator=(const Cat&);
 
-    std::cout << b << std::endl;
+    void makeSound() const;
+    Brain *getBrain() const;
+};
 
-    std::cout << Fixed::max( a, b ) << std::endl;
-
-    return (0);
-}
+#endif

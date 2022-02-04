@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/31 17:51:58 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/04 01:01:07 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/04 01:02:13 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#include "Ice.hpp"
 
-int main( void )
-{
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
+Ice::Ice(const Ice& src) : AMateria(src) {
+}
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+Ice& Ice::operator=(const Ice &src) {
+    if (this != &src)
+    {
+        AMateria::operator=(src);
+    }
+    return (*this);
+}
 
-    std::cout << b << std::endl;
+AMateria* Ice::clone() const {
+    return (new Ice());
+}
 
-    std::cout << Fixed::max( a, b ) << std::endl;
-
-    return (0);
+void Ice::use(ICharacter& target) {
+    std::cout << "* shoots an ice bolt at " << target.getName() << std::endl;
+    AMateria::use(target);
 }

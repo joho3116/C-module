@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/11 16:21:22 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/01/31 17:51:58 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/03 14:01:48 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/03 14:46:51 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Fixed.hpp"
+#include "Dog.hpp"
 
-int main( void )
-{
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
+Dog::Dog() : Animal("Dog") {
+}
 
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+Dog::~Dog() {
+}
 
-    std::cout << b << std::endl;
+Dog::Dog(const Dog& src) {
+    *this = src;
+}
 
-    std::cout << Fixed::max( a, b ) << std::endl;
+Dog& Dog::operator=(const Dog& src) {
+    this->Animal::operator=(src);
+    return (*this);
+}
 
-    return (0);
+void Dog::makeSound() const {
+    std::cout << "Bow Wow" << std::endl;
 }
