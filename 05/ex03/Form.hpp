@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:27:27 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/05 17:22:42 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/02/05 21:49:31 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Form {
         Form() :name("empty"), signGrade(0), executeGrade(0){};
     public :
         Form(std::string name, int signGrade, int executeGrade);
-        ~Form();
+        virtual ~Form();
         Form(const Form& src);
         Form& operator=(const Form& src);
 

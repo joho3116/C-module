@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 14:58:36 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/03 23:24:20 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/02/05 15:10:15 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class WrongAnimal {
         virtual ~WrongAnimal();
         std::string const & getType() const;
 
-        virtual void makeSound() const;
+        void makeSound() const;
 };
 
 #endif

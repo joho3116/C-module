@@ -6,11 +6,11 @@
 #    By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/04 14:57:20 by johokyoun         #+#    #+#              #
-#    Updated: 2022/02/05 21:34:31 by johokyoun        ###   ########.fr        #
+#    Updated: 2022/02/05 21:48:32 by johokyoun        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Form
+NAME = Intern
 CC = clang++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -20,7 +20,8 @@ SRCS =	./main.cpp	\
 		./Form.cpp \
 		./PresidentialPardonForm.cpp \
 		./RobotomyRequestForm.cpp \
-		./ShrubberyCreationForm.cpp
+		./ShrubberyCreationForm.cpp \
+		./Intern.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.cpp=.o)))
 RM = rm -f
