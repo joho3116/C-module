@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:29:01 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/06 17:49:19 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/02/06 20:31:16 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,7 @@ void identify(Base& r)
         C refC = dynamic_cast<C&>(r);
         refC.sound();
     }
-    catch(const std::exception& e) {}
-
-    
-            
+    catch(const std::exception& e) {}    
 }
 
 /* dynamic cast 
