@@ -5,30 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 17:00:20 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/06 16:34:02 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/06 15:25:03 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/06 15:54:28 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "Base.hpp"
 
-int main()
+int main () 
 {
-	{
-		Bureaucrat hojo("hojo", 3);
-		Bureaucrat khancho("khancho", 1);
-		Form form("CPP_05", 2, 5);
-
-		std::cout << hojo << std::endl;
-		std::cout << khancho << std::endl;
-		std::cout << form << std::endl;
-
-		hojo.signForm(form);
-		std::cout << form << std::endl;
-		khancho.signForm(form);
-		std::cout << form << std::endl;
-	}
-
-	return (0);
+    Base *b = generate();
+    identify(b);
+    identify(*b);
+    delete(b);
+    return (0);
 }

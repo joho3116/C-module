@@ -5,30 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/04 17:00:20 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/06 16:34:02 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/05 22:13:58 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/05 22:57:59 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include <iostream>
+#include "ScalarConverter.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-	{
-		Bureaucrat hojo("hojo", 3);
-		Bureaucrat khancho("khancho", 1);
-		Form form("CPP_05", 2, 5);
-
-		std::cout << hojo << std::endl;
-		std::cout << khancho << std::endl;
-		std::cout << form << std::endl;
-
-		hojo.signForm(form);
-		std::cout << form << std::endl;
-		khancho.signForm(form);
-		std::cout << form << std::endl;
+	if (argc != 2 || strcmp(argv[1], "") == 0) {
+		std::cout << "Error : argument." << std::endl;
+		return (-1);
 	}
-
+	ScalarConverter converter(argv[1]);
+	std::cout << converter << std::endl;
 	return (0);
 }

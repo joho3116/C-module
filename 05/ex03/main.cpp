@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:00:20 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/05 21:50:37 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/02/06 16:46:35 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,6 @@ int main()
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	system("leaks Bureaucrat");
+	system("leaks Intern");
 	return 0;
 }

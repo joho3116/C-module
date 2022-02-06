@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 17:00:20 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/05 21:38:47 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/02/06 00:04:42 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,15 @@ void test_form(Form &form, Bureaucrat &correct, Bureaucrat &wrong)
 int main()
 {
 	{
-		srand(time(NULL));
 		Bureaucrat hojo("hojo", 1);
-		Bureaucrat wrong("wrong", 150);
+		Bureaucrat khancho("khancho", 150);
 		ShrubberyCreationForm form1("Target");
 		RobotomyRequestForm form2("Target");
 		PresidentialPardonForm form3("Target");
-		test_form(form1, hojo, wrong);
-		test_form(form2, hojo, wrong);
-		test_form(form3, hojo, wrong);
+		test_form(form1, hojo, khancho);
+		test_form(form2, hojo, khancho);
+		test_form(form3, hojo, khancho);
 	}
-	system("leaks Bureaucrat");
+	system("leaks Form");
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:04:56 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/04 17:00:11 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/02/05 23:53:14 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,17 @@ int Bureaucrat::getGrade() const {
 
 void Bureaucrat::incrementGrade(int amount)
 {
-    if (this->_grade + amount > 150)
-        throw GradeTooHighException();
-    this->_grade += amount;
+    if (this->_grade - amount < 1)
+        throw GradeTooLowException();
+    this->_grade -= amount;
 }
 
 void Bureaucrat::decrementGrade(int amount)
 {
-    if (this->_grade - amount < 1)
-        throw GradeTooLowException();
-    this->_grade -= amount;
+
+    if (this->_grade + amount > 150)
+        throw GradeTooHighException();
+    this->_grade += amount;
 }
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat& src)
