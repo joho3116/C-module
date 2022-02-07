@@ -1,34 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   mutantstack.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/06 18:29:52 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/07 13:14:55 by johokyoun        ###   ########.fr       */
+/*   Created: 2022/02/07 16:53:58 by johokyoun         #+#    #+#             */
+/*   Updated: 2022/02/07 17:35:19 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
-
-#include <iostream>
-
-template <typename T>
-void printT(T &a)
-{
-    std::cout << a << std::endl;
-    return;
-}
-
-template <typename T>
-void iter(T *arrPtr, int len, void (*func)(T const &a))
-{
-    if (arrPtr == NULL || len == 0 || func == NULL)
-        return ;
-    for (int i = 0; i < len; i++)
-        func(arrPtr[i]);
-}
-
-#endif
+#include "mutantstack.hpp"

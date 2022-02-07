@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:07:37 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/06 22:47:03 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/02/07 13:29:32 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void printArr(Array<T>& arr) {
 
 int main(int, char**)
 {
+    Array<int> number;
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -35,6 +36,7 @@ int main(int, char**)
         mirror[i] = value;
     }
     //SCOPE
+    std::cout << "number`s address is " << &number << std::endl;
     printArr(numbers);
     {
         Array<int> tmp = numbers;

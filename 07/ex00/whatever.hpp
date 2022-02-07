@@ -6,7 +6,7 @@
 /*   By: johokyoun <johokyoun@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 18:09:21 by johokyoun         #+#    #+#             */
-/*   Updated: 2022/02/06 18:28:37 by johokyoun        ###   ########.fr       */
+/*   Updated: 2022/02/06 23:31:53 by johokyoun        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 template <typename T>
-void swap(T& a, T&b)
+void swap(T& a, T& b)
 {
     T tmp;
     tmp = a;
